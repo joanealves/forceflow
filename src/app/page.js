@@ -23,17 +23,32 @@ const programData = [
   }
 ];
 
-function ProgramCard({ title, description, image, level, scrollY, index }) {
-  const threshold = 1000 + (index * 100);
-  const opacity = scrollY > threshold ? 1 : 0;
-  const translateY = scrollY > threshold ? 0 : 50;
+function ProgramCard({ title, description, image, level, scrollY, index, sectionRef }) {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const checkVisibility = () => {
+      if (!sectionRef.current) return;
+      
+      const sectionTop = sectionRef.current.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (sectionTop < windowHeight * 0.8 - (index * 100)) {
+        setIsVisible(true);
+      }
+    };
+    
+    checkVisibility();
+    window.addEventListener('scroll', checkVisibility);
+    return () => window.removeEventListener('scroll', checkVisibility);
+  }, [scrollY, index, sectionRef]);
   
   return (
     <div 
       className="bg-zinc-900 rounded-xl overflow-hidden group hover:scale-105 transition-all duration-500"
       style={{
-        opacity: opacity,
-        transform: `translateY(${translateY}px)`,
+        opacity: isVisible ? 1 : 0,
+        transform: `translateY(${isVisible ? 0 : 50}px)`,
         transition: 'all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1)'
       }}
     >
@@ -66,6 +81,7 @@ export default function CrossFitSite() {
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const heroRef = useRef(null);
+  const programsSectionRef = useRef(null);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -130,7 +146,7 @@ export default function CrossFitSite() {
               key={i}
               className="border border-zinc-700"
               style={{
-                transform: `translate(${Math.sin((scrollY + i) * 0.01) * 10}px, ${Math.cos((scrollY + i) * 0.01) * 10}px)`,
+                transform: `translate(${(Math.sin((scrollY + i) * 0.01) * 10).toFixed(4)}px, ${(Math.cos((scrollY + i) * 0.01) * 10).toFixed(4)}px)`,
                 transition: 'transform 0.5s ease-out'
               }}
             ></div>
@@ -144,7 +160,7 @@ export default function CrossFitSite() {
           style={{ 
             left: '10%', 
             top: '20%',
-            transform: `translate(${scrollY * 0.1}px, ${scrollY * -0.05}px)` 
+            transform: `translate(${(scrollY * 0.1).toFixed(4)}px, ${(scrollY * -0.05).toFixed(4)}px)` 
           }}
         ></div>
         <div 
@@ -152,15 +168,15 @@ export default function CrossFitSite() {
           style={{ 
             right: '15%', 
             bottom: '30%',
-            transform: `translate(${scrollY * -0.15}px, ${scrollY * 0.1}px)` 
+            transform: `translate(${(scrollY * -0.15).toFixed(4)}px, ${(scrollY * 0.1).toFixed(4)}px)` 
           }}
         ></div>
         
         <div 
           className="container mx-auto px-4 z-10 flex flex-col gap-8"
           style={{ 
-            transform: `translateY(${scrollY * 0.2}px)`,
-            opacity: 1 - (scrollY * 0.001),
+            transform: `translateY(${(scrollY * 0.2).toFixed(4)}px)`,
+            opacity: (1 - (scrollY * 0.001)).toFixed(4),
           }}
         >
           <h1 className="text-6xl md:text-8xl font-black text-center">
@@ -183,8 +199,8 @@ export default function CrossFitSite() {
         <div 
           className="absolute bottom-12 left-0 right-0 mx-auto w-full max-w-5xl bg-zinc-800/80 backdrop-blur-md rounded-xl p-4 md:p-6 z-20"
           style={{ 
-            transform: `translateY(${Math.max(0, 100 - scrollY)}px)`,
-            opacity: Math.min(1, scrollY * 0.01),
+            transform: `translateY(${(Math.max(0, 100 - scrollY)).toFixed(4)}px)`,
+            opacity: (Math.min(1, scrollY * 0.01)).toFixed(4),
           }}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -219,7 +235,7 @@ export default function CrossFitSite() {
         </div>
       </section>
       
-      <section className="py-20 bg-zinc-800">
+      <section ref={programsSectionRef} id="programas" className="py-20 bg-zinc-800">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">PROGRAMAS <span className="text-red-500">PERSONALIZADOS</span></h2>
@@ -238,6 +254,7 @@ export default function CrossFitSite() {
                 level={program.level}
                 scrollY={scrollY}
                 index={index}
+                sectionRef={programsSectionRef}
               />
             ))}
           </div>
@@ -256,8 +273,8 @@ export default function CrossFitSite() {
                 top: `${i * 6}%`,
                 left: '-10%',
                 right: '-10%',
-                transform: `translateX(${Math.sin((scrollY + i * 200) * 0.002) * 10}%)`,
-                opacity: 0.5 + (Math.sin((scrollY + i) * 0.01) * 0.5),
+                transform: `translateX(${(Math.sin((scrollY + i * 200) * 0.002) * 10).toFixed(4)}%)`,
+                opacity: (0.5 + (Math.sin((scrollY + i) * 0.01) * 0.5)).toFixed(4),
               }}
             ></div>
           ))}
