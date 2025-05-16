@@ -1,0 +1,110 @@
+"use client";
+import { useEffect } from 'react';
+
+export default function ProgramDetails({ title, description, level, onSchedule }) {
+  return (
+    <div className="p-6">
+      <div className="mb-6">
+        <span className="bg-red-500 text-xs px-3 py-1 rounded-full uppercase">
+          {level}
+        </span>
+      </div>
+
+      <p className="text-zinc-300 mb-6">{description}</p>
+
+      <div className="space-y-4">
+        <h4 className="text-xl font-bold">O que você aprenderá:</h4>
+        <ul className="space-y-2">
+          {title === "INICIANTE" && (
+            <>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Fundamentos e técnica básica de movimentos funcionais</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Desenvolvimento de mobilidade e flexibilidade</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Condicionamento cardiovascular inicial</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Introdução às rotinas de treino em grupo</span>
+              </li>
+            </>
+          )}
+
+          {title === "INTERMEDIÁRIO" && (
+            <>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Técnicas avançadas de levantamento de peso</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Progressão em movimentos de ginástica e calistenia</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Aprimoramento de resistência e velocidade</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Estratégias para workouts complexos</span>
+              </li>
+            </>
+          )}
+
+          {title === "ELITE" && (
+            <>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Programação personalizada para alto rendimento</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Treinamento específico para competições</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Nutrição e recuperação avançada</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Análise de desempenho e monitoramento de métricas</span>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+
+      <div className="mt-8">
+        <h4 className="text-xl font-bold mb-4">Valor do Investimento:</h4>
+        <div className="bg-zinc-800 p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-zinc-300">Plano Mensal</p>
+              <p className="text-xs text-zinc-500">Pago mensalmente</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold">
+                {title === "INICIANTE" && "R$ 199,90"}
+                {title === "INTERMEDIÁRIO" && "R$ 249,90"}
+                {title === "ELITE" && "R$ 299,90"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        onClick={onSchedule}
+        className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg mt-6 transition-colors"
+      >
+        QUERO COMEÇAR AGORA
+      </button>
+    </div>
+  );
+}

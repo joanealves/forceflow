@@ -2,7 +2,7 @@
 import { useRef } from 'react';
 import { Dumbbell, Clock, Users, ArrowRight } from 'lucide-react';
 
-export default function Hero({ scrollY }) {
+export default function Hero({ scrollY, onStartNow }) {
   const heroRef = useRef(null);
   
   return (
@@ -54,12 +54,12 @@ export default function Hero({ scrollY }) {
           Treinamento funcional de alta intensidade com uma comunidade que te impulsiona a cada dia.
         </p>
         <div className="flex justify-center mt-8">
-          <a 
-            href="#" 
+          <button 
+            onClick={onStartNow}
             className="flex items-center gap-2 bg-red-500 hover:bg-red-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:gap-4"
           >
             COMECE AGORA <ArrowRight />
-          </a>
+          </button>
         </div>
       </div>
       

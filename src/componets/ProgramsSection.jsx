@@ -23,7 +23,7 @@ const programData = [
   }
 ];
 
-function ProgramCard({ title, description, image, level, scrollY, index, sectionRef }) {
+function ProgramCard({ title, description, image, level, scrollY, index, sectionRef, onLearnMore }) {
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
@@ -66,18 +66,18 @@ function ProgramCard({ title, description, image, level, scrollY, index, section
       <div className="p-6">
         <h3 className="text-2xl font-bold mb-3">{title}</h3>
         <p className="text-zinc-400">{description}</p>
-        <a 
-          href="#" 
+        <button 
+          onClick={() => onLearnMore(title, description, level)}
           className="mt-6 inline-flex items-center gap-2 font-bold text-red-500 hover:text-red-400 transition-colors"
         >
           SAIBA MAIS <ArrowRight size={16} />
-        </a>
+        </button>
       </div>
     </div>
   );
 }
 
-const ProgramsSection = forwardRef(({ scrollY }, ref) => {
+const ProgramsSection = forwardRef(({ scrollY, onLearnMore }, ref) => {
   return (
     <section ref={ref} id="programas" className="py-20 bg-zinc-800">
       <div className="container mx-auto px-4">
@@ -99,6 +99,7 @@ const ProgramsSection = forwardRef(({ scrollY }, ref) => {
               scrollY={scrollY}
               index={index}
               sectionRef={ref}
+              onLearnMore={onLearnMore}
             />
           ))}
         </div>

@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from 'react';
 
-export default function CallToAction({ scrollY }) {
+export default function CallToAction({ scrollY, onScheduleTrial, setExploreSpaceModalOpen }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   
@@ -58,18 +58,18 @@ export default function CallToAction({ scrollY }) {
             Junte-se a centenas de pessoas que já mudaram suas vidas através do nosso método exclusivo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="#" 
+            <button 
+              onClick={onScheduleTrial}
               className="bg-red-500 hover:bg-red-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105"
             >
               AGENDAR AULA EXPERIMENTAL
-            </a>
-            <a 
-              href="#" 
+            </button>
+            <button 
+              onClick={() => setExploreSpaceModalOpen(true)}
               className="bg-transparent border-2 border-white/30 hover:border-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105"
             >
               CONHECER ESPAÇO
-            </a>
+            </button>
           </div>
         </div>
       </div>

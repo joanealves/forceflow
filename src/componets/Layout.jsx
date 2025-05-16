@@ -7,12 +7,14 @@ import Modal from './Modal';
 import ContactForm from './ContactForm';
 import TrialForm from './TrialForm';
 import SuccessMessage from './SuccessMessage';
+import ExploreSpaceModal from './ExploreSpaceModal';
 
 export default function Layout({ children }) {
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [trialModalOpen, setTrialModalOpen] = useState(false);
+  const [exploreSpaceModalOpen, setExploreSpaceModalOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   
   useEffect(() => {
@@ -175,7 +177,6 @@ export default function Layout({ children }) {
         </div>
       </footer>
 
-      {/* Modal de Contato */}
       <Modal 
         isOpen={contactModalOpen} 
         onClose={() => {
@@ -191,7 +192,6 @@ export default function Layout({ children }) {
         )}
       </Modal>
 
-      {/* Modal de Agendamento */}
       <Modal 
         isOpen={trialModalOpen} 
         onClose={() => {
@@ -206,6 +206,11 @@ export default function Layout({ children }) {
           <TrialForm onSubmitSuccess={handleTrialSubmit} />
         )}
       </Modal>
+
+      <ExploreSpaceModal 
+        isOpen={exploreSpaceModalOpen} 
+        onClose={() => setExploreSpaceModalOpen(false)} 
+      />
     </div>
   );
 }
