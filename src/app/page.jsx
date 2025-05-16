@@ -8,6 +8,8 @@ import TestimonialsSection from '../componets/TestimonialSection';
 import CoachesSection from '../componets/CoachesSection';
 import Modal from '../componets/Modal';
 import ProgramDetails from '../componets/ProgramDetails';
+import TrialForm from '../componets/TrialForm'; 
+import ExploreSpaceModal from '../componets/ExploreSpaceModal';
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -73,6 +75,20 @@ export default function HomePage() {
         </Modal>
       )}
 
+      <ExploreSpaceModal 
+        isOpen={exploreSpaceModalOpen} 
+        onClose={() => setExploreSpaceModalOpen(false)} 
+      />
+
+      <Modal 
+        isOpen={trialModalOpen} 
+        onClose={() => setTrialModalOpen(false)} 
+        title="Agende sua Aula Experimental"
+      >
+        <TrialForm onSubmitSuccess={() => {
+          setTrialModalOpen(false);
+        }} />
+      </Modal>
     </Layout>
   );
 }
