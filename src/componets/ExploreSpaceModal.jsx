@@ -4,10 +4,9 @@ import { MapPin, ArrowRight, Camera } from 'lucide-react';
 import Modal from './Modal';
 
 const spaceImages = [
-  "/api/placeholder/800/500",
-  "/api/placeholder/800/500",
-  "/api/placeholder/800/500",
-  "/api/placeholder/800/500"
+  "/assets/estrutura/box.png",
+  "/assets/estrutura/home.png",
+  "/assets/estrutura/one.png",
 ];
 
 export default function ExploreSpaceModal({ isOpen, onClose }) {

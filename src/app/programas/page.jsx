@@ -24,7 +24,7 @@ export default function ProgramasPage() {
         "Desenvolvimento de mobilidade"
       ],
       price: "R$199/mês",
-      image: "/api/placeholder/600/400",
+      image: "/assets/iniciante.png",
       color: "from-blue-600/20"
     },
     {
@@ -38,7 +38,7 @@ export default function ProgramasPage() {
         "Preparação para competições locais"
       ],
       price: "R$249/mês",
-      image: "/api/placeholder/600/400",
+      image: "/assets/intermediario.png",
       color: "from-red-600/20",
       highlighted: true
     },
@@ -53,7 +53,7 @@ export default function ProgramasPage() {
         "Aulas exclusivas para atletas avançados"
       ],
       price: "R$349/mês",
-      image: "/api/placeholder/600/400",
+      image: "/assets/elite.png",
       color: "from-purple-600/20"
     },
     {
@@ -67,7 +67,7 @@ export default function ProgramasPage() {
         "Avaliações físicas periódicas"
       ],
       price: "A partir de R$120/hora",
-      image: "/api/placeholder/600/400",
+      image: "/assets/personal.png",
       color: "from-amber-600/20"
     }
   ];

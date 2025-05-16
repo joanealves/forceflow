@@ -16,7 +16,7 @@ export default function CoachesPage() {
     {
       name: "Rodrigo Almeida",
       specialty: "CrossFit Level 3 Trainer",
-      image: "/api/placeholder/400/500",
+      image: "/assets/rodrigo.png",
       instagram: "rodrigo.trainer",
       bio: "Coach Rodrigo é especialista em movimentos olímpicos e treinos de alta intensidade. Com mais de 10 anos de experiência, já formou dezenas de atletas competitivos.",
       certifications: ["CrossFit Level 3 Trainer", "Olympic Weightlifting Level 2", "Mobility Specialist"]
@@ -24,7 +24,7 @@ export default function CoachesPage() {
     {
       name: "Camila Santos",
       specialty: "Olympic Weightlifting Specialist",
-      image: "/api/placeholder/400/500",
+      image: "/assets/camila.png",
       instagram: "camila.lift",
       bio: "Especialista em levantamento olímpico, Camila é atleta de competições nacionais e se dedica a ensinar técnicas avançadas e seguras para movimentos complexos.",
       certifications: ["CrossFit Level 2 Trainer", "Olympic Weightlifting Expert", "Nutrition Coach"]
@@ -32,7 +32,7 @@ export default function CoachesPage() {
     {
       name: "Bruno Costa",
       specialty: "Mobility & Gymnastics Expert",
-      image: "/api/placeholder/400/500",
+      image: "/assets/bruno.png",
       instagram: "bruno.mobility",
       bio: "Bruno traz uma abordagem única combinando ginástica e mobilidade ao CrossFit. Seu foco é ajudar atletas a superarem limitações físicas para movimentos avançados.",
       certifications: ["CrossFit Gymnastics", "Movement Specialist", "Injury Prevention Coach"]
@@ -40,7 +40,7 @@ export default function CoachesPage() {
     {
       name: "Juliana Mendes",
       specialty: "Nutrition Coach",
-      image: "/api/placeholder/400/500",
+      image: "/assets/juliana.png",
       instagram: "juliana.nutrition",
       bio: "Nutricionista esportiva especializada em atletas de CrossFit, Juliana ajuda os membros a otimizarem sua alimentação para performance e resultados estéticos.",
       certifications: ["Sports Nutrition Specialist", "CrossFit Level 1 Trainer", "Precision Nutrition Coach"]
@@ -48,7 +48,7 @@ export default function CoachesPage() {
     {
       name: "Marcos Oliveira",
       specialty: "Endurance & Conditioning Coach",
-      image: "/api/placeholder/400/500",
+      image: "/assets/marcos.png",
       instagram: "marcos.endurance",
       bio: "Ex-atleta de triatlons, Marcos se especializou em desenvolver capacidade cardiorrespiratória e endurance para atletas de todas as modalidades.",
       certifications: ["CrossFit Endurance", "Running Coach", "Triathlon Specialist"]
@@ -56,7 +56,7 @@ export default function CoachesPage() {
     {
       name: "Patrícia Lima",
       specialty: "CrossFit Kids & Teens Coach",
-      image: "/api/placeholder/400/500",
+      image: "/assets/patricia.png",
       instagram: "paty.crossfit",
       bio: "Especialista em treinamento funcional para crianças e adolescentes, Patrícia desenvolve programas que combinam diversão e desenvolvimento motor.",
       certifications: ["CrossFit Kids", "Youth Fitness Specialist", "Physical Education"]

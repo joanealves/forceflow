@@ -6,19 +6,19 @@ const programData = [
   {
     title: "INICIANTE",
     description: "Ideal para quem está começando sua jornada no CrossFit com foco em técnica e condicionamento básico.",
-    image: "/api/placeholder/600/400",
+    image: "/assets/iniciante.png",
     level: "Básico"
   },
   {
     title: "INTERMEDIÁRIO",
     description: "Para atletas com experiência que buscam melhorar performance e técnica em movimentos avançados.",
-    image: "/api/placeholder/600/400",
+    image: "/assets/intermediario.png",
     level: "Médio"
   },
   {
     title: "ELITE",
     description: "Treinamento de alta performance para atletas que desejam competir ou atingir resultados excepcionais.",
-    image: "/api/placeholder/600/400",
+    image: "/assets/elite.png",
     level: "Avançado"
   }
 ];

@@ -6,37 +6,37 @@ const testimonialsData = [
   {
     name: "André Silva",
     position: "Membro há 2 anos",
-    image: "/api/placeholder/150/150",
+    image: "/assets/depoimentos/paulo.png",
     text: "Em apenas 3 meses de treino, perdi 12kg e ganhei uma confiança que nunca tive antes. Os treinadores são incríveis!"
   },
   {
     name: "Marina Oliveira",
     position: "Membro há 1 ano",
-    image: "/api/placeholder/150/150",
+    image: "/assets/depoimentos/marina.png",
     text: "Após meu primeiro filho, achei que nunca mais voltaria à forma. A comunidade ForceFlow me motivou todos os dias."
   },
   {
     name: "Rafael Mendes",
     position: "Membro há 3 anos",
-    image: "/api/placeholder/150/150",
+    image: "/assets/depoimentos/rafael.png",
     text: "Como atleta amador, o programa Elite me ajudou a melhorar meu desempenho em competições locais de forma impressionante."
   },
   {
     name: "Gabriela Costa",
     position: "Membro há 6 meses",
-    image: "/api/placeholder/150/150",
+    image: "/assets/depoimentos/anaclara.png",
     text: "Nunca gostei de academias tradicionais. Aqui encontrei uma comunidade que me apoia e desafia todos os dias!"
   },
   {
     name: "Lucas Ferreira",
     position: "Membro há 1 ano",
-    image: "/api/placeholder/150/150",
+    image: "/assets/depoimentos/luis.png",
     text: "Os treinadores são extremamente atentos à técnica. Me ajudaram a superar dores crônicas e a me tornar mais forte."
   },
   {
     name: "Carolina Lima",
     position: "Membro há 8 meses",
-    image: "/api/placeholder/150/150",
+    image: "/assets/depoimentos/anaclara.png",
     text: "Comecei com zero experiência. Hoje faço movimentos que nunca imaginei ser capaz. O ambiente é acolhedor para todos os níveis."
   }
 ];

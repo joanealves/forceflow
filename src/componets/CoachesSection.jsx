@@ -6,25 +6,25 @@ const coachesData = [
   {
     name: "Rodrigo Almeida",
     specialty: "CrossFit Level 3 Trainer",
-    image: "/api/placeholder/400/500",
+    image: "/assets/rodrigo.png",
     instagram: "rodrigo.trainer"
   },
   {
     name: "Camila Santos",
     specialty: "Olympic Weightlifting Specialist",
-    image: "/api/placeholder/400/500",
+    image: "/assets/camila.png",
     instagram: "camila.lift"
   },
   {
     name: "Bruno Costa",
     specialty: "Mobility & Gymnastics Expert",
-    image: "/api/placeholder/400/500",
+    image: "/assets/bruno.png",
     instagram: "bruno.mobility"
   },
   {
     name: "Juliana Mendes",
     specialty: "Nutrition Coach",
-    image: "/api/placeholder/400/500",
+    image: "/assets/juliana.png",
     instagram: "juliana.nutrition"
   }
 ];

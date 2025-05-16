@@ -17,53 +17,53 @@ export default function ComunidadePage() {
     {
       title: "ForceFlow Throwdown",
       date: "25 de Junho, 2025",
-      image: "/api/placeholder/600/400",
+      image: "/assets/galeria/evento.png",
       description: "Competição interna com diversas categorias. Venha testar seus limites e se divertir com nossa comunidade!",
       link: "#"
     },
     {
       title: "Workshop de Levantamento Olímpico",
       date: "12 de Julho, 2025",
-      image: "/api/placeholder/600/400",
+      image: "/assets/galeria/leve.png",
       description: "Aprenda técnicas avançadas de snatch e clean & jerk com nossos coaches especialistas.",
       link: "#"
     },
     {
       title: "Desafio de Verão",
       date: "5 a 30 de Janeiro, 2026",
-      image: "/api/placeholder/600/400",
+      image: "/assets/galeria/elastico.png",
       description: "Um mês de desafios diários para transformar seu corpo e sua mente durante as férias.",
       link: "#"
     }
   ];
   
   const gallery = [
-    { image: "/api/placeholder/600/400", caption: "Competição interna 2024" },
-    { image: "/api/placeholder/600/400", caption: "Treino na praia" },
-    { image: "/api/placeholder/600/400", caption: "Workshop de mobilidade" },
-    { image: "/api/placeholder/600/400", caption: "Aula especial de aniversário" },
-    { image: "/api/placeholder/600/400", caption: "Equipe ForceFlow na competição estadual" },
-    { image: "/api/placeholder/600/400", caption: "Confraternização de final de ano" },
-    { image: "/api/placeholder/600/400", caption: "Treino de levantamento olímpico" },
-    { image: "/api/placeholder/600/400", caption: "Café da manhã pós-treino" }
+    { image: "/assets/galeria/maos.png", caption: "Competição interna 2024" },
+    { image: "/assets/galeria/corrida.png", caption: "Treino na praia" },
+    { image: "/assets/galeria/foco.png", caption: "Workshop de mobilidade" },
+    { image: "/assets/galeria/evento.png", caption: "Aula especial de aniversário" },
+    { image: "/assets/galeria/espacial.png", caption: "Equipe ForceFlow na competição estadual" },
+    { image: "/assets/galeria/elastico.png", caption: "Confraternização de final de ano" },
+    { image: "/assets/galeria/snatch.png", caption: "Treino de levantamento olímpico" },
+    { image: "/assets/galeria/barra.png", caption: "Treino Elite" }
   ];
   
   const stories = [
     {
       name: "Marcelo Souza",
-      image: "/api/placeholder/150/150",
+      image: "/assets/depoimentos/marcelo.png",
       title: "Superando limites",
       text: "Após dois anos sedentário, encontrei no ForceFlow não apenas uma academia, mas uma família que me ajudou a perder 25kg e recuperar minha autoestima."
     },
     {
       name: "Ana Clara",
-      image: "/api/placeholder/150/150",
+      image: "/assets/depoimentos/anaclara.png",
       title: "Do básico ao avançado",
       text: "Nunca imaginei que conseguiria fazer uma barra livre, muito menos um muscle-up. Hoje, 18 meses depois, já participo de competições regionais."
     },
     {
       name: "Roberto e Patrícia",
-      image: "/api/placeholder/150/150",
+      image: "/assets/depoimentos/robertod.png",
       title: "Transformação em casal",
       text: "Começamos juntos há 1 ano e mudamos completamente nosso estilo de vida. Os treinos viraram nosso momento favorito do dia e estamos mais saudáveis do que nunca."
     }
@@ -129,7 +129,6 @@ export default function ComunidadePage() {
             </div>
           </div>
           
-          {/* Eventos */}
           {activeTab === 'eventos' && (
             <div 
               className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
@@ -167,7 +166,6 @@ export default function ComunidadePage() {
             </div>
           )}
           
-          {/* Galeria */}
           {activeTab === 'galeria' && (
             <div 
               className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
@@ -192,7 +190,6 @@ export default function ComunidadePage() {
             </div>
           )}
           
-          {/* Histórias */}
           {activeTab === 'historias' && (
             <div 
               className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
@@ -221,7 +218,6 @@ export default function ComunidadePage() {
             </div>
           )}
           
-          {/* Social Media */}
           <div 
             className="bg-zinc-800 p-8 rounded-xl max-w-4xl mx-auto"
             style={{
