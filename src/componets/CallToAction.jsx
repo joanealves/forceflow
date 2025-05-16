@@ -52,7 +52,7 @@ export default function CallToAction({ scrollY, onScheduleTrial, setExploreSpace
       >
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-black mb-6">
-            PRONTO PARA <span className="text-red-500">TRANSFORMAR</span> SEU CORPO?
+            PRONTO PARA <span className="text-red-500 animate-pulse"  >TRANSFORMAR</span> SEU CORPO?
           </h2>
           <p className="text-xl text-zinc-300 mb-10">
             Junte-se a centenas de pessoas que já mudaram suas vidas através do nosso método exclusivo.

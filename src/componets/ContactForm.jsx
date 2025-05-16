@@ -20,10 +20,8 @@ export default function ContactForm({ onSubmitSuccess }) {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simular envio do formulário
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    // Reset form
     setFormData({
       name: '',
       email: '',

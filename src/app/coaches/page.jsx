@@ -2,9 +2,12 @@
 import { useState, useEffect } from 'react';
 import Layout from '../../componets/Layout';
 import CoachCard from '../../componets/CoachCard';
+import Modal from '../../componets/Modal';
+import TrialForm from '../../componets/TrialForm';
 
 export default function CoachesPage() {
   const [isVisible, setIsVisible] = useState(false);
+  const [trialModalOpen, setTrialModalOpen] = useState(false);
   
   useEffect(() => {
     setTimeout(() => {
@@ -142,15 +145,25 @@ export default function CoachesPage() {
               Nossos coaches estão prontos para te ajudar a alcançar seus objetivos,
               independente do seu nível atual. Agende uma aula experimental hoje mesmo!
             </p>
-            <a 
-              href="#" 
+            <button 
+              onClick={() => setTrialModalOpen(true)} 
               className="inline-block bg-red-500 hover:bg-red-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105"
             >
               AGENDAR AULA EXPERIMENTAL
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      <Modal 
+        isOpen={trialModalOpen} 
+        onClose={() => setTrialModalOpen(false)} 
+        title="Agende sua Aula Experimental"
+      >
+        <TrialForm onSubmitSuccess={() => {
+          setTrialModalOpen(false);
+        }} />
+      </Modal>
     </Layout>
   );
 }

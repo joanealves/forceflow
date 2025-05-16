@@ -2,9 +2,12 @@
 import { useState, useEffect } from 'react';
 import Layout from '../../componets/Layout';
 import ScheduleTable from '../../componets/ScheduleTable';
+import Modal from '../../componets/Modal';
+import TrialForm from '../../componets/TrialForm';
 
 export default function SchedulePage() {
   const [isVisible, setIsVisible] = useState(false);
+  const [trialModalOpen, setTrialModalOpen] = useState(false);
   
   useEffect(() => {
     setTimeout(() => {
@@ -55,15 +58,25 @@ export default function SchedulePage() {
             <p className="text-zinc-300 mb-6">
               Não tem certeza se nossos horários se encaixam na sua rotina? Agende uma conversa com nossa equipe para encontrar a melhor solução.
             </p>
-            <a 
-              href="#" 
+            <button 
+              onClick={() => setTrialModalOpen(true)}
               className="inline-block bg-red-500 hover:bg-red-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105"
             >
               AGENDAR AGORA
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      <Modal 
+        isOpen={trialModalOpen} 
+        onClose={() => setTrialModalOpen(false)} 
+        title="Agende sua Aula Experimental"
+      >
+        <TrialForm onSubmitSuccess={() => {
+          setTrialModalOpen(false);
+        }} />
+      </Modal>
     </Layout>
   );
 }

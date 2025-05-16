@@ -2,15 +2,30 @@
 import { useState, useEffect } from 'react';
 import Layout from '../../componets/Layout';
 import { ArrowRight } from 'lucide-react';
+import Modal from '../../componets/Modal';
+import TrialForm from '../../componets/TrialForm';
+import ContactForm from '../../componets/ContactForm';
 
 export default function ProgramasPage() {
   const [isVisible, setIsVisible] = useState(false);
+  const [trialModalOpen, setTrialModalOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState(null);
   
   useEffect(() => {
     setTimeout(() => {
       setIsVisible(true);
     }, 100);
   }, []);
+  
+  const handleMatricular = (program) => {
+    setSelectedProgram(program);
+    setTrialModalOpen(true);
+  };
+
+  const handleAgendarConversa = () => {
+    setContactModalOpen(true);
+  };
   
   const programs = [
     {
@@ -25,7 +40,8 @@ export default function ProgramasPage() {
       ],
       price: "R$199/mês",
       image: "/assets/iniciante.png",
-      color: "from-blue-600/20"
+      color: "from-blue-600/20",
+      level: "Básico"
     },
     {
       title: "INTERMEDIÁRIO",
@@ -40,7 +56,8 @@ export default function ProgramasPage() {
       price: "R$249/mês",
       image: "/assets/intermediario.png",
       color: "from-red-600/20",
-      highlighted: true
+      highlighted: true,
+      level: "Médio"
     },
     {
       title: "ELITE",
@@ -54,7 +71,8 @@ export default function ProgramasPage() {
       ],
       price: "R$349/mês",
       image: "/assets/elite.png",
-      color: "from-purple-600/20"
+      color: "from-purple-600/20",
+      level: "Avançado"
     },
     {
       title: "PERSONAL TRAINING",
@@ -68,7 +86,8 @@ export default function ProgramasPage() {
       ],
       price: "A partir de R$120/hora",
       image: "/assets/personal.png",
-      color: "from-amber-600/20"
+      color: "from-amber-600/20",
+      level: "Personalizado"
     }
   ];
   
@@ -85,7 +104,7 @@ export default function ProgramasPage() {
             }}
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              NOSSOS <span className="text-red-500">PROGRAMAS</span>
+              NOSSOS <span className="text-red-500 ">PROGRAMAS</span>
             </h1>
             <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
               Oferecemos diversos programas para atender diferentes níveis de experiência e objetivos.
@@ -133,12 +152,12 @@ export default function ProgramasPage() {
                     
                     <div className="flex items-center justify-between">
                       <span className="text-xl font-bold text-white">{program.price}</span>
-                      <a 
-                        href="#" 
+                      <button 
+                        onClick={() => handleMatricular(program)}
                         className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 hover:gap-3"
                       >
                         MATRICULAR <ArrowRight size={16} />
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -159,15 +178,43 @@ export default function ProgramasPage() {
               Agende uma conversa com nossos coaches para uma avaliação personalizada e 
               descubra qual programa se encaixa melhor com seus objetivos.
             </p>
-            <a 
-              href="#" 
+            <button 
+              onClick={handleAgendarConversa}
               className="inline-block bg-red-500 hover:bg-red-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105"
             >
               AGENDAR CONVERSA
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {selectedProgram && (
+        <Modal
+          isOpen={trialModalOpen}
+          onClose={() => setTrialModalOpen(false)}
+          title={`Matricular em ${selectedProgram.title}`}
+        >
+          <div className="mb-4">
+            <span className="bg-red-500 text-xs px-3 py-1 rounded-full">
+              {selectedProgram.level}
+            </span>
+            <p className="mt-4 text-zinc-300">{selectedProgram.description}</p>
+            <p className="mt-2 font-bold text-xl">{selectedProgram.price}</p>
+          </div>
+          <TrialForm onSubmitSuccess={() => setTrialModalOpen(false)} />
+        </Modal>
+      )}
+
+      <Modal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+        title="Agendar Conversa com Coach"
+      >
+        <p className="mb-4 text-zinc-300">
+          Preencha o formulário abaixo e um de nossos coaches entrará em contato para uma conversa personalizada sobre seus objetivos e qual programa melhor se adapta ao seu perfil.
+        </p>
+        <ContactForm onSubmitSuccess={() => setContactModalOpen(false)} />
+      </Modal>
     </Layout>
   );
 }
